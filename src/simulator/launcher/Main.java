@@ -149,18 +149,18 @@ public class Main {
 		// TODO complete this method to start the simulation
 		// crear iputstream
 		InputStream is = new FileInputStream(new File(_inFile));
-		OutputStream os = null;
-		
-		if(_outFile == null) {
-			os= System.out;
-		}else {
-			os= new FileOutputStream(new File(_outFile));
-		}
+//		OutputStream os = null;
+//		
+//		if(_outFile == null) {
+//			os= System.out;
+//		}else {
+//			os= new FileOutputStream(new File(_outFile));
+//		}
 		
 		TrafficSimulator sim = new TrafficSimulator();
 		Controller cont = new Controller(sim, _eventsFactory);
 		cont.loadEvents(is);
-		cont.run(ticks, os);
+		cont.run(ticks, null);
 		is.close();		
 	}
 
