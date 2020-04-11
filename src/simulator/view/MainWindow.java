@@ -40,7 +40,7 @@ public class MainWindow extends JFrame {
 		JPanel eventsView = createViewPanel(new JTable(new EventsTableModel(_ctrl)), "Events");//titulo del borde negro que rodea la tabla, se hace en borderFactoy, se implementa en createViewPanel, menos los botones casi todo lleva bordes!
 		eventsView.setPreferredSize(new Dimension(500, 200));
 		tablesPanel.add(eventsView);	//el add es para poder verlo
-		// TODO add other tables
+		// add other tables
 		JPanel vehiclesView = createViewPanel(new JTable(new VehiclesTableModel(_ctrl)), "Vehicles");//titulo del borde negro que rodea la tabla, se hace en borderFactoy, se implementa en createViewPanel, menos los botones casi todo lleva bordes!
 		vehiclesView.setPreferredSize(new Dimension(500, 200));
 		tablesPanel.add(vehiclesView);
@@ -60,7 +60,7 @@ public class MainWindow extends JFrame {
 		JPanel mapView = createViewPanel(new MapComponent(_ctrl), "Map");
 		mapView.setPreferredSize(new Dimension(500, 400));
 		mapsPanel.add(mapView);
-		// TODO add a map for MapByRoadComponent
+		// add a map for MapByRoadComponent
 		JPanel mapByRoad = createViewPanel(new MapByRoadComponent(_ctrl), "Map by Road");
 		mapByRoad.setPreferredSize(new Dimension(500, 400));
 		mapsPanel.add(mapByRoad);

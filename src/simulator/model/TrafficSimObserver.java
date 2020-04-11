@@ -2,7 +2,7 @@ package simulator.model;
 
 import java.util.List;
 
-public interface TrafficSimObserver {		//TODO esto se mete dentro de otra clase o aqui esta bien
+public interface TrafficSimObserver {
 	void onAdvanceStart(RoadMap map, List<Event> events, int time);
 
 	void onAdvanceEnd(RoadMap map, List<Event> events, int time);
