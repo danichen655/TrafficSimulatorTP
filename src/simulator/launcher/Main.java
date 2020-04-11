@@ -186,5 +186,14 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
+	
+	//TODO revisar
+	public static void set_inFile(String _inFile) {
+        Main._inFile = _inFile;
+    }
+
+    public static void set_outFile(String _outFile) {
+        Main._outFile = _outFile;
+    }
 
 }

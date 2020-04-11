@@ -15,7 +15,7 @@ public class VehiclesTableModel extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
 	
 	
-	private List<EventEx> _events;
+	private List<EventEx> _events;								//TODO ESTO CAMBIA?
 	private String[] _colNames = { "#", "Time", "Priority" };
 
 	public VehiclesTableModel(Controller _ctrl) {
@@ -31,7 +31,8 @@ public class VehiclesTableModel extends AbstractTableModel {
 		fireTableDataChanged();;		
 	}
 	
-	public void setEventsList(List<EventEx> events) {
+	public void setEventsList(List<EventEx> events) {			//TODO ESTO CAMBIA?
+		
 		_events = events;
 		update();
 	}

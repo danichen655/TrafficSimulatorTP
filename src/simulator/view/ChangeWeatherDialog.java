@@ -1,5 +1,7 @@
 package simulator.view;
 
-public class ChangeWeatherDialog {
+import javax.swing.JDialog;
+
+public class ChangeWeatherDialog extends JDialog{
 
 }
