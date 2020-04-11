@@ -41,25 +41,32 @@ public class Controller {
 	public void run(int n, OutputStream out) throws NegativeException, StatusException {
 		int i=0;
 		int k=0;
-		PrintStream p= new PrintStream(out);			
-		p.print("{");
-		p.println(" \"states\": [ ");
 		
-		while(i < n-1) { // n-1
-			sim.advance();
-			p.print(sim.report()); 		
-			p.println(",");
-			i++;
-			if (i== 141) {
-				k=0;
+		if(out != null) {
+			
+			PrintStream p= new PrintStream(out);
+			p.print("{");
+			p.println(" \"states\": [ ");
+			
+			while(i < n-1) { // n-1
+				sim.advance();
+				p.print(sim.report()); 		
+				p.println(",");
+				i++;
+				if (i== 141) {
+					k=0;
+				}
 			}
-		}
-		if (i== n-1) { //n-1
-			sim.advance();
-			p.println(sim.report());
+			if (i== n-1) { //n-1
+				sim.advance();
+				p.println(sim.report());
+			}
+			
+			p.println("]}");
+			
 		}
 		
-		p.println("]}");
+		
 		
 	}
 	

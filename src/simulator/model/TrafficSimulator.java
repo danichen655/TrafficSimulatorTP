@@ -10,8 +10,6 @@ import exceptions.StatusException;
 import simulator.misc.SortedArrayList;
 
 
-
-
 public class TrafficSimulator implements Observable<TrafficSimObserver>{
 
 	private RoadMap mapaCarreteras; // guarda todos los objetos de la simulacion
@@ -112,20 +110,6 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 		for(TrafficSimObserver ob:observerList)
 			ob.onReset(mapaCarreteras, listaEventos, tiempo);
 	}
-
-
-	@Override
-	public void addObserver(TrafficSimObserver o) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void removeObserver(TrafficSimObserver o) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	public void notifyOnError(String err) {	//TODO revisar xq esta mal, ver desde donde llamarla, y hacer el throw
 		try {
