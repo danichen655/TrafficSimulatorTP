@@ -63,16 +63,17 @@ public class Controller {
 		
 	}
 	
+	//NEW
 	public void addObserver(TrafficSimObserver o) {
-		
-	}// invoca addObserver de TrafficSimulator
-		
+		sim.addObserver(o);
+	}		
 	
 	void removeObserver(TrafficSimObserver o) {
-		// invoca removeObserver de TrafficSimulator
+		sim.removeObserver(o);
 	}
+	
 	void addEvent(Event e) {
-		// invoca addEvent de TrafficSimulator
+		sim.addEvent(e);
 	}
 	
 	public void reset() {
