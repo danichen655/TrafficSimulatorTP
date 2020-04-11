@@ -8,11 +8,13 @@ import exceptions.NegativeException;
 import exceptions.StatusException;
 import simulator.misc.SortedArrayList;
 
-public class TrafficSimulator {
+public class TrafficSimulator implements Observable<TrafficSimObserver> {
 
 	private RoadMap mapaCarreteras; // guarda todos los objetos de la simulacion
 	private List<Event> listaEventos; // usar SortedArrayList
 	private int tiempo;
+	
+	private TrafficSimObserver t;
 
 	public TrafficSimulator() {
 		super();
@@ -28,6 +30,8 @@ public class TrafficSimulator {
 	public void advance() throws NegativeException, StatusException {
 		// 1
 		tiempo++;
+		
+		
 		// 2
 
 		while (listaEventos.size() > 0 && listaEventos.get(0).getTime() == this.tiempo) {
@@ -58,6 +62,18 @@ public class TrafficSimulator {
 		jo.put("time", tiempo);
 		jo.put("state", mapaCarreteras.report());
 		return jo;
+	}
+
+	@Override
+	public void addObserver(TrafficSimObserver o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeObserver(TrafficSimObserver o) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
