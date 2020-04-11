@@ -18,7 +18,7 @@ public class EventsTableModel extends AbstractTableModel {
 	private List<EventEx> _events;
 	private String[] _colNames = { "#", "Time", "Priority" };
 
-	public EventsTableModel(Controller _ctrl) {
+	public EventsTableModel(Controller _ctrl) { // sin parametros era
 		_events=null;
 	}
 

@@ -9,14 +9,20 @@ import exceptions.NegativeException;
 import exceptions.StatusException;
 import simulator.misc.SortedArrayList;
 
+
+
+
 public class TrafficSimulator implements Observable<TrafficSimObserver>{
 
 	private RoadMap mapaCarreteras; // guarda todos los objetos de la simulacion
 	private List<Event> listaEventos; // usar SortedArrayList
 	private int tiempo;
+
+	
+	private TrafficSimObserver t;
+
 	//PARAMETROS NUEVOS
 	private List<TrafficSimObserver> observerList;
-	
 	
 	
 	public TrafficSimulator() {
@@ -37,8 +43,11 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 		// 1
 		tiempo++;
 		
+
+
 		//
 		notifyOnAdvanceStart();
+
 		// 2
 
 		while (listaEventos.size() > 0 && listaEventos.get(0).getTime() == this.tiempo) {
@@ -104,6 +113,20 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 			ob.onReset(mapaCarreteras, listaEventos, tiempo);
 	}
 
+
+	@Override
+	public void addObserver(TrafficSimObserver o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeObserver(TrafficSimObserver o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	public void notifyOnError(String err) {	//TODO revisar xq esta mal, ver desde donde llamarla, y hacer el throw
 		try {
 			for(TrafficSimObserver ob:observerList)
@@ -114,4 +137,5 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 			notifyOnError(ex.getMessage());
 		}
 	}
+
 }

@@ -101,7 +101,11 @@ public class JTableExamples extends JFrame {
 				TitledBorder.TOP));
 
 		// the model
+
+		_model = new EventsTableModel(null); // estaba sin parametros
+
 		//_model = new EventsTableModel();	//TODO
+
 		_eventsTable = new JTable(_model);
 
 		eventsPanel.add(new JScrollPane(_eventsTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
