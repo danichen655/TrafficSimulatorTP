@@ -18,6 +18,9 @@ import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 import javax.swing.border.TitledBorder;
+
+import simulator.view.EventsTableModel;
+
 import javax.swing.border.Border;
 
 import java.awt.event.ActionEvent;
@@ -98,7 +101,7 @@ public class JTableExamples extends JFrame {
 				TitledBorder.TOP));
 
 		// the model
-		_model = new EventsTableModel();
+		//_model = new EventsTableModel();	//TODO
 		_eventsTable = new JTable(_model);
 
 		eventsPanel.add(new JScrollPane(_eventsTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,

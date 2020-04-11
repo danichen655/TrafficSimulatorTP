@@ -1,12 +1,13 @@
-package extra.jtable;
+package simulator.view;
 
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import extra.jtable.EventEx;
 import simulator.control.Controller;
 
-public class EventsTableModel extends AbstractTableModel {
+public class VehiclesTableModel extends AbstractTableModel {
 
 	/**
 	 * 
@@ -17,7 +18,7 @@ public class EventsTableModel extends AbstractTableModel {
 	private List<EventEx> _events;
 	private String[] _colNames = { "#", "Time", "Priority" };
 
-	public EventsTableModel(Controller _ctrl) {
+	public VehiclesTableModel(Controller _ctrl) {
 		_events=null;
 	}
 
