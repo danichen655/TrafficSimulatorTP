@@ -19,7 +19,7 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 	private int tiempo;
 
 	
-	private TrafficSimObserver t;
+	//private TrafficSimObserver t;
 
 	//PARAMETROS NUEVOS
 	private List<TrafficSimObserver> observerList;
@@ -61,6 +61,7 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 		// 4
 		for (Road carreteras : mapaCarreteras.getRoads()) {
 			carreteras.advance(tiempo);
+			//TODO enun try & catch --_>thia.notifyeeror..?
 		}	
 		
 		//
@@ -113,28 +114,14 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 			ob.onReset(mapaCarreteras, listaEventos, tiempo);
 	}
 
-
-	@Override
-	public void addObserver(TrafficSimObserver o) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void removeObserver(TrafficSimObserver o) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 	public void notifyOnError(String err) {	//TODO revisar xq esta mal, ver desde donde llamarla, y hacer el throw
 		try {
 			for(TrafficSimObserver ob:observerList)
-				ob.onError(err);
-		
+				ob.onError(err);		
 		}
 		catch(Exception ex){
-			notifyOnError(ex.getMessage());
+			//observerList.onError(err);
+			notifyOnError(ex.getMessage());	//IGUAL AKI NO SE HACE EL TRY CATCH Y SE HACE EN LOS ADVANCE
 		}
 	}
 

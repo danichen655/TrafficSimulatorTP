@@ -34,7 +34,7 @@ public abstract class NewRoadEvent extends Event {
 	
 	@Override
 	public String toString() {
-		return "New Road '" + id + "'";
+		return "New Road '" + id + "'";//TODO pude que no hafa falta o que desde la hijas hago un super.tostring()
 	}
 	
 	abstract Road createRoadObject() throws NegativeException;
