@@ -10,8 +10,6 @@ import exceptions.StatusException;
 import simulator.misc.SortedArrayList;
 
 
-
-
 public class TrafficSimulator implements Observable<TrafficSimObserver>{
 
 	private RoadMap mapaCarreteras; // guarda todos los objetos de la simulacion

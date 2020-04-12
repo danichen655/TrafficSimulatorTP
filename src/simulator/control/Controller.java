@@ -42,8 +42,14 @@ public class Controller {
 		int i=0;
 		int k=0;
 		
+
+		if(out != null) {
+			
+			PrintStream p= new PrintStream(out);
+
 		if(out!=null) {//Para esta practica ya no hace falta imprimirlo xd
 			PrintStream p= new PrintStream(out);			
+
 			p.print("{");
 			p.println(" \"states\": [ ");
 			
@@ -62,7 +68,14 @@ public class Controller {
 			}
 			
 			p.println("]}");
+
+			
 		}
+		
+		
+
+		}
+
 		
 	}
 	

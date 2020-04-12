@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 
 import simulator.control.Controller;
 
@@ -79,4 +80,8 @@ public class MainWindow extends JFrame {
 		p.add(new JScrollPane(c));
 		return p;
 	}
+
+
 }
+
+
