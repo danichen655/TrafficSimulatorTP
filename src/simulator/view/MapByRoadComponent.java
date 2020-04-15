@@ -41,7 +41,8 @@ public class MapByRoadComponent extends JPanel implements TrafficSimObserver {
 	private static final Color _JUNCTION_LABEL_COLOR = new Color(200, 100, 0);
 	private static final Color _GREEN_LIGHT_COLOR = Color.GREEN;
 	private static final Color _RED_LIGHT_COLOR = Color.RED;
-
+	/*un array de imagenes*/
+	
 	private RoadMap _map;
 
 	private Image _car;
@@ -63,6 +64,7 @@ public class MapByRoadComponent extends JPanel implements TrafficSimObserver {
 		return i;
 	}
 	
+	/*estos son iguales que en map comoponente, pero hay que hacerlo*/
 	@Override
 	public void onAdvanceStart(RoadMap map, List<Event> events, int time) {
 		// TODO Auto-generated method stub

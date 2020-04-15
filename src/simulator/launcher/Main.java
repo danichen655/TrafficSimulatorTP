@@ -2,11 +2,14 @@ package simulator.launcher;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+
+import javax.swing.SwingUtilities;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -15,6 +18,8 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+
+import com.sun.javafx.sg.prism.NGShape.Mode;
 
 import exceptions.NegativeException;
 import exceptions.StatusException;
@@ -36,6 +41,7 @@ import simulator.model.DequeuingStrategy;
 import simulator.model.Event;
 import simulator.model.LightSwitchingStrategy;
 import simulator.model.TrafficSimulator;
+import simulator.view.MainWindow;
 
 public class Main {
 
@@ -60,6 +66,7 @@ public class Main {
 			parseInFileOption(line);
 			parseOutFileOption(line);
 			parseTicksOption(line);
+			parseModeOption(line);
 
 			// if there are some remaining arguments, then something wrong is
 			// provided in the command line!
@@ -83,12 +90,11 @@ public class Main {
 		Options cmdLineOptions = new Options();
 
 		cmdLineOptions.addOption(Option.builder("i").longOpt("input").hasArg().desc("Events input file").build());
-		cmdLineOptions.addOption(
-				Option.builder("o").longOpt("output").hasArg().desc("Output file, where reports are written.").build());
-		cmdLineOptions.addOption(
-				Option.builder("t").longOpt("ticks").hasArg().desc("Ticks de la simulacion.").build());
+		cmdLineOptions.addOption(Option.builder("o").longOpt("output").hasArg().desc("Output file, where reports are written.").build());
+		cmdLineOptions.addOption(Option.builder("t").longOpt("ticks").hasArg().desc("Ticks de la simulacion.").build());
 		cmdLineOptions.addOption(Option.builder("h").longOpt("help").desc("Print this message").build());
-
+		cmdLineOptions.addOption(Option.builder("m").longOpt("mode").desc("Mode de la simulacion.").build());
+		
 		return cmdLineOptions;
 	}
 
@@ -121,6 +127,16 @@ public class Main {
 			ticks = Integer.parseInt(line.getOptionValue("t"));
 		}
 		
+	}
+	
+	private static void parseModeOption(CommandLine line) throws ParseException {	//TODO revisar, lo he añadido en parseArgs y en buildOptions
+		String mode = line.getOptionValue("m");
+		
+		if(mode == null) {
+			mode="gui";
+		}else {//console
+			mode = line.getOptionValue("m");
+		}
 	}
 	private static void initFactories() {
         // TODO complete this method to initialize _eventsFactory
@@ -166,10 +182,26 @@ public class Main {
 		is.close();		
 	}
 
+	private static void startGUIMode() throws NegativeException, FileNotFoundException  {	// TODO revisar
+		InputStream is = new FileInputStream(new File(_inFile));
+		TrafficSimulator sim = new TrafficSimulator();
+		Controller cont = new Controller(sim, _eventsFactory);
+		cont.loadEvents(is);
+		
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				new MainWindow(cont);
+			}
+		});
+
+	}
+	
 	private static void start(String[] args) throws IOException, NegativeException, StatusException {
 		initFactories();
 		parseArgs(args);
 		startBatchMode();
+		startGUIMode();//TODO revisar (el punto 3)
 	}
 
 	// example command lines:
