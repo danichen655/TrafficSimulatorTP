@@ -41,11 +41,7 @@ public class Controller {
 	public void run(int n, OutputStream out) throws NegativeException, StatusException {
 		int i=0;
 		int k=0;
-		
 
-		if(out != null) {
-			
-			PrintStream p= new PrintStream(out);
 
 		if(out!=null) {//Para esta practica ya no hace falta imprimirlo xd
 			PrintStream p= new PrintStream(out);			
@@ -72,10 +68,6 @@ public class Controller {
 			
 		}
 		
-		
-
-		}
-
 		
 	}
 	
