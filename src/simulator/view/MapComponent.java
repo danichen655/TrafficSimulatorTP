@@ -129,8 +129,8 @@ public class MapComponent extends JPanel implements TrafficSimObserver {
 				g.setColor(new Color(0, vLabelColor, 0));
 
 				// draw an image of a car (with circle as background) and it identifier
-				g.fillOval(vX - 1, vY - 6, 14, 14);
-				g.drawImage(_car, vX, vY - 6, 12, 12, this);
+				g.fillOval(vX - 1, vY - 6, 14, 14);//para hacer un circulo en funcion de unas medidas de un rectangulo
+				g.drawImage(_car, vX, vY - 6, 12, 12, this);//aki lo mismo, se trabaja con la esquina superior izquierda
 				g.drawString(v.getId(), vX, vY - 6);
 			}
 		}

@@ -42,7 +42,6 @@ public class Controller {
 		int i=0;
 		int k=0;
 
-
 		if(out!=null) {//Para esta practica ya no hace falta imprimirlo xd
 			PrintStream p= new PrintStream(out);			
 
@@ -64,11 +63,7 @@ public class Controller {
 			}
 			
 			p.println("]}");
-
-			
 		}
-		
-		
 	}
 	
 	//NEW

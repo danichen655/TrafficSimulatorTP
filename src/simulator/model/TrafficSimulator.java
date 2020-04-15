@@ -41,8 +41,6 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 		// 1
 		tiempo++;
 		
-
-
 		//
 		notifyOnAdvanceStart();
 
@@ -59,7 +57,7 @@ public class TrafficSimulator implements Observable<TrafficSimObserver>{
 		// 4
 		for (Road carreteras : mapaCarreteras.getRoads()) {
 			carreteras.advance(tiempo);
-			//TODO enun try & catch --_>thia.notifyeeror..?
+			//TODO enun try & catch --_>thia.notifyeror..?
 		}	
 		
 		//
