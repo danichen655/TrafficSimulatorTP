@@ -19,8 +19,6 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import com.sun.javafx.sg.prism.NGShape.Mode;
-
 import exceptions.NegativeException;
 import exceptions.StatusException;
 import simulator.control.Controller;
